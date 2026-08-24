@@ -1,0 +1,132 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #ff6f91, #ff9a8b, #ff6f91);
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 50px 40px;
+  text-align: center;
+  z-index: 10;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  max-width: 90vw;
+}
+
+h1 {
+  color: white;
+  font-size: 2.2rem;
+  margin: 0 0 10px 0;
+  padding: 0 10px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+#subtext {
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 35px;
+  font-size: 1rem;
+}
+
+#buttons {
+  position: relative;
+  min-height: 60px;
+}
+
+.btn, button {
+  padding: 14px 34px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: inherit;
+}
+
+#yesBtn {
+  background-color: #ffffff;
+  color: #ff6f91;
+  margin-right: 20px;
+  transition: transform 0.2s ease;
+}
+
+#yesBtn:hover {
+  transform: scale(1.15);
+}
+
+#noBtn {
+  background-color: #333;
+  color: white;
+  transition: left 0.15s ease-out, top 0.15s ease-out;
+}
+
+#message {
+  display: none;
+  color: white;
+}
+
+#message .emoji {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  animation: pop 0.4s ease;
+}
+
+#message p {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+@keyframes pop {
+  0% { transform: scale(0); }
+  70% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.hearts-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floating-heart {
+  position: absolute;
+  bottom: -50px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1.5rem;
+  animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
